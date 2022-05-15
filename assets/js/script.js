@@ -15,25 +15,6 @@ function writePassword() {
   var upperArr = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
   var specialArr = ["!@#$%^&*_+=/<>?~"];
   var numberArr = ["1234567890"];
-
-  // var password = generatePassword() {
-  //   console.log("here!");
-  //   let passLength = answerArr[0];
-  //   let passwordText = "";
-  //   if (answerArr[0] = "yes") {
-  //     passwordValuePool.push(lowerArr);
-  //   };
-  //   if (answerArr[2] = "yes") {
-  //     passwordValuePool.push(upperArr);
-  //   };
-  //   if (answerArr[3] = "yes") {
-  //     passwordValuePool.push(specialArr);
-  //   };
-  //   if (answerArr[4] = "yes") {
-  //     passwordValuePool.push(numberArr);
-  //   };
-  //  
-  // };
   var passwordText = document.querySelector("#password");
   // while will run the function so long as the function is true (ie so long as the user does not click cancel on the prompt.)
   while (true) {
@@ -63,6 +44,7 @@ function writePassword() {
             // logging to console to see value. 
             console.log(pwOptionLower);
             // if the value  matches yes or no then cont.
+            pwOptionLower = pwOptionLower.toLowerCase().trim();
             if (pwOptionLower == "yes" || pwOptionLower == "no") {
               console.log("All Good Lower." + pwOptionLower);
               if(pwOptionLower == "yes"){
@@ -78,10 +60,11 @@ function writePassword() {
                   alert(exitMessage);
                   return true;
                 } else {
-                  pwOptionUpper = pwOptionUpper.toLocaleLowerCase();
+                  pwOptionUpper = pwOptionUpper.toLocaleLowerCase().trim();
                   console.log(pwOptionUpper);
                   if (pwOptionUpper == "yes" || pwOptionUpper == "no") {
                     console.log("All Good Upper." + pwOptionUpper);
+                    pwOptionUpper = pwOptionUpper.trim();
                     if(pwOptionUpper == "yes"){ 
                       answerArr +=upperArr;
                       console.log(answerArr);
@@ -93,10 +76,9 @@ function writePassword() {
                         alert(exitMessage);
                         return true;
                       } else {
-                        pwOptionSpecial = pwOptionSpecial.toLocaleLowerCase();
-                        console.log(pwOptionSpecial);
+                        pwOptionSpecial = pwOptionSpecial.toLocaleLowerCase().trim();
                         if (pwOptionSpecial == "yes" || pwOptionSpecial == "no") {
-                          console.log("All Good Upper." + pwOptionSpecial);
+                          console.log("All Good Special." + pwOptionSpecial);
                           if(pwOptionSpecial == 'yes'){
                           answerArr +=specialArr;
                         }
@@ -107,14 +89,16 @@ function writePassword() {
                               alert(alert(exitMessage));
                               return true;
                             } else {
-                              pwOptionNumbers = pwOptionNumbers.toLocaleLowerCase();
+                              pwOptionNumbers = pwOptionNumbers.toLocaleLowerCase().trim();
                               console.log(pwOptionNumbers);
                               if (pwOptionNumbers == "yes" || pwOptionNumbers == "no") {
-                                console.log("All Good Upper." + pwOptionNumbers);
+                                console.log("All Good Numbers." + pwOptionNumbers);
                                 if(pwOptionNumbers == "yes"){
                                   answerArr +=numberArr;
+                                  
                               }
-                                if (answerArr !==0) {
+                                console.log(answerArr);
+                                if (answerArr.length !== 0) {
                                     answerArr = answerArr.split("");
                                     console.log(answerArr);
                                     for (var i = 0; i < pwOptionLength;  i++) {
