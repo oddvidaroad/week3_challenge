@@ -85,7 +85,7 @@ function writePassword() {
                           while (true) {
                             let pwOptionNumbers = prompt("Would you like to use numbers? Please enter Yes or No");
                             if (pwOptionNumbers === null) {
-                              alert(alert(exitMessage));
+                              alert(exitMessage);
                               return true;
                             } else {
                               pwOptionNumbers = pwOptionNumbers.toLocaleLowerCase().trim();
