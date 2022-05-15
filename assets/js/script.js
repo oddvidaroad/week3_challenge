@@ -7,7 +7,7 @@ function writePassword() {
   let exitMessage = "See ya later. I'll be here when you are ready to try again.";
   let yesNoMsg = "Please type Yes or No only";
   let answerArr = [];
-  let password = [];
+  let password = "";
   let lowerArr = ["abcdefghijklmnopqrstuvwxyz"];
   let upperArr = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
   let specialArr = ["!@#$%^&*_+=/<>?~"];
