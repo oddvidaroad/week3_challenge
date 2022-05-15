@@ -3,7 +3,7 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-// Set function variables.
+  // Set function variables.
   let exitMessage = "See ya later. I'll be here when you are ready to try again.";
   let yesNoMsg = "Please type Yes or No only";
   let answerArr = [];
@@ -45,9 +45,9 @@ function writePassword() {
             // if the value  matches yes or no then cont.
             if (pwOptionLower == "yes" || pwOptionLower == "no") {
               //console.log("All Good Lower." + pwOptionLower);
-              if(pwOptionLower == "yes"){
+              if (pwOptionLower == "yes") {
                 // Answer array is empty but I need to add the lowerArr values in case the user selected Yes.
-                answerArr +=lowerArr;
+                answerArr += lowerArr;
                 console.log(answerArr);
               }
               // Start next iteration with Upper Case Letters
@@ -62,11 +62,11 @@ function writePassword() {
                   pwOptionUpper = pwOptionUpper.toLocaleLowerCase().trim();
                   console.log(pwOptionUpper);
                   if (pwOptionUpper == "yes" || pwOptionUpper == "no") {
-                   // console.log("All Good Upper." + pwOptionUpper);
+                    // console.log("All Good Upper." + pwOptionUpper);
                     pwOptionUpper = pwOptionUpper.trim();
-                    if(pwOptionUpper == "yes"){ 
-                      answerArr +=upperArr;
-                     // console.log(answerArr);
+                    if (pwOptionUpper == "yes") {
+                      answerArr += upperArr;
+                      // console.log(answerArr);
                     };
                     // Start next iteration with Upper Special Chars
                     while (true) {
@@ -78,9 +78,9 @@ function writePassword() {
                         pwOptionSpecial = pwOptionSpecial.toLocaleLowerCase().trim();
                         if (pwOptionSpecial == "yes" || pwOptionSpecial == "no") {
                           //console.log("All Good Special." + pwOptionSpecial);
-                          if(pwOptionSpecial == 'yes'){
-                          answerArr +=specialArr;
-                        }
+                          if (pwOptionSpecial == 'yes') {
+                            answerArr += specialArr;
+                          }
                           // Start next iteration with Numbers
                           while (true) {
                             let pwOptionNumbers = prompt("Would you like to use numbers? Please enter Yes or No");
@@ -89,24 +89,25 @@ function writePassword() {
                               return true;
                             } else {
                               pwOptionNumbers = pwOptionNumbers.toLocaleLowerCase().trim();
-                             // console.log(pwOptionNumbers);
+                              // console.log(pwOptionNumbers);
                               if (pwOptionNumbers == "yes" || pwOptionNumbers == "no") {
                                 //console.log("All Good Numbers." + pwOptionNumbers);
-                                if(pwOptionNumbers == "yes"){
-                                  answerArr +=numberArr;
-                              }
-                               // console.log(answerArr);
+                                if (pwOptionNumbers == "yes") {
+                                  answerArr += numberArr;
+                                }
+                                // console.log(answerArr);
                                 if (answerArr.length !== 0) {
-                                    answerArr = answerArr.split("");
-                                 //   console.log(answerArr);
-                                 // For each value starting at 0 to the number of characters in the chosen password length I need to add the a value of the randomly selected value from the array of possible values to total the length chosen by the user.
-                                    for ( i = 0; i < pwOptionLength;  i++) {
-                                          password  += answerArr[Math.floor(Math.random() * answerArr.length)];
-                                        };
-                                    // Set the passwordText (ie the value of the card password text to the password);
-                                    passwordText.value = password;
-                                    // exit the function by returning the password.
-                                    return password;
+                                  // Split will take the answer array string make each individual value a value in the new array.
+                                  answerArr = answerArr.split("");
+                                  //   console.log(answerArr);
+                                  // For each value starting at 0 to the number of characters in the chosen password length I need to add the a value of the randomly selected value from the array of possible values to total the length chosen tb
+                                  for (i = 0; i < pwOptionLength; i++) {
+                                    password += answerArr[Math.floor(Math.random() * answerArr.length)];
+                                  };
+                                  // Set the passwordText (ie the value of the card password text to the password);
+                                  passwordText.value = password;
+                                  // exit the function by returning the password.
+                                  return password;
                                 } else {
                                   // if the User did not choose any characters or numbers alert the user to the error and ask them to try again by selecting at least 1 set of characters for the password.
                                   alert("Error making the password. You must choose at least 1 set of characaters to include in the password. Please try again");
