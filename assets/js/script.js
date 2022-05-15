@@ -14,7 +14,7 @@ function writePassword() {
   let numberArr = ["1234567890"];
   let passwordText = document.querySelector("#password");
 
-  // while will run the function so long as the function is true (ie so long as the user does not click cancel on the prompt.)
+  // while will run the function so long as the function is true (ie so long as the user does not click cancel on the prompt or the function returns a value.)
   while (true) {
     // declare variable password length.
     let pwOptionLength = prompt("Please selet a length for your password between 8 and 128 Characters.");

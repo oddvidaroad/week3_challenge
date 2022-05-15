@@ -1,4 +1,7 @@
+Challenge 3: Password Generator
 
+
+Created an application that prompts the user for password criteria and validates the input at each step then presents the user with a password that meets the chosen requirements. Allows the user to exit gracefully.
 
 
 ## User Story
@@ -33,4 +36,4 @@ THEN the password is either displayed in an alert or written to the page
 
 The following image shows the web application's appearance and functionality:
 
-![The Password Generator application displays a red button to "Generate Password".](assets/images/03-javascript-homework-demo.png)
+![The Password Generator application displays a red button to "Generate Password".](./assets/images/03-javascript-homework-demo.png)
