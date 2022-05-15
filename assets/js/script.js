@@ -2,13 +2,10 @@
 var generateBtn = document.querySelector("#generate");
 
 
-
-
 // Write password to the #password input
 function writePassword() {
   //var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
   // while will run the function so long as the function is true (ie so long as the user does not click cancel on the prompt.)
   while (true) {
     var exitMessage = "See ya later. I'll be here when you are ready to try again.";
@@ -37,27 +34,36 @@ function writePassword() {
         console.log(pwOptionLength);
       }
     }
+    // Ask the user if they want to use Lower Case Letters.
     while (true) {
       let pwOptionLower = prompt("Would you like to use lower case letters? Please enter Yes or No");
+      // if the user hits cancel on the prompt the value 'null' is recorded and therefore we exit the while and let the user know they are out.
       if (pwOptionLower === null) {
         alert(exitMessage);
         return true;
       } else {
+        // the users entry must match yes or no when the value is made lower case. This will solve for all combos of YES, Yes YEs, No, NO, etc.
         pwOptionLower = pwOptionLower.toLocaleLowerCase();
+        // logging to console to see value. 
         console.log(pwOptionLower);
+        // if the value  matches yes or no then cont.
         if (pwOptionLower == "yes" || pwOptionLower == "no") {
           console.log("All Good Lower." + pwOptionLower);
           //return pwOptionLower;
+          // Start next iteration with Upper Case Letters
           while (true) {
+            // Ask the user if they want to use Lower Case Letters.
             let pwOptionUpper = prompt("Would you like to use upper case letters? Please enter Yes or No");
+            // if the user clicks cancel, then display the exitMessage and exit the function
             if (pwOptionUpper === null) {
               alert(exitMessage);
-              //return true
+              return true;
             } else {
               pwOptionUpper = pwOptionUpper.toLocaleLowerCase();
               console.log(pwOptionUpper);
               if (pwOptionUpper == "yes" || pwOptionUpper == "no") {
                 console.log("All Good Upper." + pwOptionUpper);
+                // Start next iteration with Upper Special Chars
                 while (true) {
                   let pwOptionSpecial = prompt("Would you like to use special characters? Please enter Yes or No");
                   if (pwOptionSpecial === null) {
@@ -68,9 +74,9 @@ function writePassword() {
                     console.log(pwOptionSpecial);
                     if (pwOptionSpecial == "yes" || pwOptionSpecial == "no") {
                       console.log("All Good Upper." + pwOptionSpecial);
-                      // return pwOptionSpecial;
+                      // Start next iteration with Numbers
                       while (true) {
-                        let pwOptionNumbers = prompt("Would you like to use special characters? Please enter Yes or No");
+                        let pwOptionNumbers = prompt("Would you like to use numbers? Please enter Yes or No");
                         if (pwOptionNumbers === null) {
                           alert(exitMessage);
                           return true;
@@ -79,7 +85,7 @@ function writePassword() {
                           console.log(pwOptionNumbers);
                           if (pwOptionNumbers == "yes" || pwOptionNumbers == "no") {
                             console.log("All Good Upper." + pwOptionNumbers);
-                            return pwOptionNumbers;
+                            //return pwOptionNumbers;
                           } else {
                             alert(yesNoMsg);
                           }
