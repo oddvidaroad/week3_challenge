@@ -17,7 +17,7 @@ function writePassword() {
   // while will run the function so long as the function is true (ie so long as the user does not click cancel on the prompt or the function returns a value.)
   while (true) {
     // declare variable password length.
-    let pwOptionLength = prompt("Please selet a length for your password between 8 and 128 Characters.");
+    let pwOptionLength = prompt("Please select a length for your password between 8 and 128 Characters.");
     // Conditional statement; if the length is type and value null the exit the function because the user has cancelled the operation.
     if (pwOptionLength === null) {
       // In case the user hits the cancel button, then let them exit gracefully.
