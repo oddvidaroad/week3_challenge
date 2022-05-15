@@ -20,7 +20,7 @@ function writePassword() {
     let pwOptionLength = prompt("Please selet a length for your password between 8 and 128 Characters.");
     // Conditional statement; if the length is type and value null the exit the function because the user has cancelled the operation.
     if (pwOptionLength === null) {
-      // user hit cancel
+      // In case the user hits the cancel button, then let them exit gracefully.
       alert(exitMessage);
       // return true to exit the function.
       return true;
